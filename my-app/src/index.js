@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+function Hello(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+const el = <Hello name="David" />; 
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  el, 
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
