@@ -1,14 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-function Hello(props) {
-  return <p>Hello, {props.name}!</p>;
+
+class Counter extends React.Component {
+  state = {
+    counter: 0
+  }
+  increment = () => {
+    this.setState({counter: this.state.counter+1});
+  }
+  componentDidMount() {
+    this.setState({counter: 42});
+  }
+  render() {
+    return <div>
+    <p>{this.state.counter}</p>
+    <button onClick={this.increment}>Increment</button>
+    </div>;
+  }
 }
 
-const el = <Hello name="David" />; 
+// function Counter() {
+//   const [counter, setCounter] = useState(0);
+
+//   function increment() {
+//     setCounter(counter+1);
+//   }
+//   return <div>
+//   <p>{counter}</p>
+//   <button onClick={increment}>Increment</button>
+//   </div>;
+// }
+
+function Hello() {
+  const [name, setName] = useState("David");
+
+  return <h1>Hello {name}.</h1>;
+}
+
+// function Hello(props) {
+//   return <p>Hello, {props.name}!</p>;
+// }
+
+const el = <Counter />;
+//el += <Hello name="David" />;
+
 
 
 
